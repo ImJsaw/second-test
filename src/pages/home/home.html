@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>咻咻蹦蹦</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+    <ion-card-content>
+      <ion-card-title>個人檔案</ion-card-title>
+      <img class = "userimage" src = "{{userimage}}" alt = "這個人很懶 還沒上傳照片">
+      <ion-list>
+        <button ion-item>
+          <ion-icon name="person"></ion-icon>
+          {{name}}
+        </button>
+        <button ion-item>
+          <ion-icon name="contact"></ion-icon>
+          第 {{group}} 小隊
+        </button>
+        <button ion-item>
+          <ion-icon name="calendar"></ion-icon>
+          {{birthday}}
+        </button>
+        <button ion-item>
+          <ion-icon name="heart"></ion-icon>
+          {{inlove}}
+        </button>
+        <button ion-item>
+          <ion-icon name="call"></ion-icon>
+          {{phonenumber}}
+        </button>
+        <button ion-item>
+          <ion-icon name="logo-facebook"></ion-icon>
+          {{facebook}}
+        </button>
+        <button ion-item>
+          <ion-icon name="logo-instagram"></ion-icon>
+          {{instagram}}
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
