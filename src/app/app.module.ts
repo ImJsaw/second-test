@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { ParticipantsPage } from '../pages/participants/participants';
+import { ModalTestPage } from '../pages/modal-test/modal-test';
+import { ModalContentPage } from '../pages/modal-test/modal-content';
 import { NotificationPage } from '../pages/notification/notification';
 import { QRcodePage } from '../pages/q-rcode/q-rcode';
 import { TimelinePage } from '../pages/timeline/timeline';
@@ -20,6 +22,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     MapPage,
     ParticipantsPage,
+    ModalTestPage,
+    ModalContentPage,
     NotificationPage,
     QRcodePage,
     TimelinePage,
@@ -35,6 +39,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     MapPage,
     ParticipantsPage,
+    ModalTestPage,
+    ModalContentPage,
     NotificationPage,
     QRcodePage,
     TimelinePage,

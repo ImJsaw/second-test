@@ -17,5 +17,25 @@
 
 
 <ion-content padding>
+  <ion-slides pager>
+    <ion-slide>
+      <ion-toolbar>
+        <h2>第一小隊</h2>
+      </ion-toolbar>
+      <div>
+      <ion-list list-inset>
+        <ion-item button *ngFor = "let member_one of team_one">
+          {{member_one}}
+        </ion-item>
+      </ion-list>
+    </div>
+    </ion-slide>
 
+    <ion-slide>
+      <ion-toolbar></ion-toolbar>
+
+      <h2>test slide page</h2>
+
+    </ion-slide>
+  </ion-slides>
 </ion-content>

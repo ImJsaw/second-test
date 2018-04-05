@@ -6,15 +6,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { ParticipantsPage } from '../pages/participants/participants';
+import { ModalTestPage } from '../pages/modal-test/modal-test';
+import { ModalContentPage } from '../pages/modal-test/modal-content';
 import { NotificationPage } from '../pages/notification/notification';
 import { QRcodePage } from '../pages/q-rcode/q-rcode';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { SponcerPage } from '../pages/sponcer/sponcer';
-import {IONIC_DIRECTIVES} from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html'
-  directives: [IONIC_DIRECTIVES]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -31,6 +31,7 @@ export class MyApp {
       { title: '首頁', component: HomePage },
       { title: '地圖', component: MapPage },
       { title: '成員', component: ParticipantsPage },
+      { title: '成員~~', component: ModalTestPage },
       { title: '通知', component: NotificationPage },
       { title: '條碼', component: QRcodePage },
       { title: '時程', component: TimelinePage },
