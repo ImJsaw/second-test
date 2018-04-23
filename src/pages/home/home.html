@@ -11,7 +11,7 @@
   <ion-card>
 
     <ion-card-content>
-      <img class = "userimage" src = "{{userimage}}" alt = "這個人很懶 還沒上傳照片">
+      <img class = "userimage" src = "{{userimage}}" alt = "照片">
       <ion-list>
         <button ion-item>
           <ion-icon name="person"></ion-icon>
@@ -19,7 +19,11 @@
         </button>
         <button ion-item>
           <ion-icon name="contact"></ion-icon>
-          第 {{group}} 小隊
+          {{group}}
+        </button>
+        <button ion-item>
+          <ion-icon name="school"></ion-icon>
+          {{school}}
         </button>
         <button ion-item>
           <ion-icon name="calendar"></ion-icon>

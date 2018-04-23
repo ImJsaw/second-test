@@ -1,6 +1,4 @@
-
 import { Component } from '@angular/core';
-
 import { Platform, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
@@ -17,13 +15,16 @@ export class ModalContentPage {
   ) {
     var characters = [
       {
-        name: 'Gollum',
-        quote: 'Sneaky little hobbitses!',
-        image: 'assets/img/avatar-gollum.jpg',
+        name: "我不4艾奎華喇",
+        team: "老子是召組^_^",
+        image: "assets/img/avatar-gollum.jpg",
         items: [
-          { title: 'Race', note: 'Hobbit' },
-          { title: 'Culture', note: 'River Folk' },
-          { title: 'Alter Ego', note: 'Smeagol' }
+          { title: '校系', note: '台科大電資學士班' },
+          { title: '生日', note: '2/30' },
+          { title: '感情狀態', note: '一言難盡>//<' },
+          { title: '電話', note: '0912487487' },
+          { title: 'FB', note: '艾奎華' },
+          { title: 'IG', note: 'ai6x8x8' },
         ]
       },
       {
