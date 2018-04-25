@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule} from '@angular/http';
+import { IonicApp, IonicErrorHandler, IonicModule,} from 'ionic-angular';
 
 import { LoginPage } from '../pages/login/login';
 
@@ -33,6 +34,7 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

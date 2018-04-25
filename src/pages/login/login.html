@@ -8,23 +8,19 @@
   <ion-card>
     <ion-card-content >
       <img class = "logo center" src = 'assets/imgs/demon.png' alt = "宿營LOGO" >
-      <label>
-        <span class = "input-label">帳號</span>
-        <ion-input type = "text" placeholder = "請輸入帳號"></ion-input>
-      </label>
-      <label>
-        <span>密碼</span>
-        <ion-input type = "password" placeholder = "請輸入密碼"></ion-input>
-      </label>
-      <ion-item>
-        <ion-label color="primary" floating>請輸入帳號</ion-label>
-        <ion-input type = "text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label color="primary" floating>請輸入密碼</ion-label>
-        <ion-input type = "password"></ion-input>
-      </ion-item>
-      <button ion-button small float-end>登入</button>
+      <div class = "input-block">
+        <label>
+          <span>帳號</span>
+          <ion-input [(ngModel)] = user.username class = "back-gray" type = "text" placeholder = "請輸入帳號" #username></ion-input>
+        </label>
+      </div>
+      <div class = "input-block">
+        <label>
+          <span class = "left-pad">密碼</span>
+          <ion-input [(ngModel)] = user.password class = "back-gray" type = "password" placeholder = "請輸入密碼" #password></ion-input>
+        </label>
+      </div>
+      <button ion-button small float-end (click) = "login(username,password)">登入</button>
     </ion-card-content>
   </ion-card>
 </ion-content>

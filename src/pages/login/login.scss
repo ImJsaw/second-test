@@ -8,6 +8,7 @@ page-login {
     }
     .logo{
       width: auto;
+      margin-bottom: 20px;
     }
     .center{
       margin-left: auto !important;
@@ -15,5 +16,13 @@ page-login {
     }
     .small-button{
       font-size: 1000px;
+    }
+    .input-block{
+      margin-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .back-gray{
+      background-color: #DDDDDD;
     }
 }
