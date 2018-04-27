@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -17,13 +17,13 @@ import { SponcerPage } from '../pages/sponcer/sponcer';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+  @ViewChild("content") nav: Nav;
 
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public alertCtrl: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -35,8 +35,6 @@ export class MyApp {
       { title: '條碼', component: QRcodePage },
       { title: '時程', component: TimelinePage },
       { title: '贊助', component: SponcerPage },
-
-
     ];
 
   }
@@ -47,12 +45,40 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      if(window.localStorage.getItem('token') != null){
+        this.nav.setRoot(HomePage);
+      }
     });
+
   }
 
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: '登出',
+      message: '確認登出?',
+      buttons: [{
+        text: '取消',
+        role: "cancel"
+      },
+      {
+        text: '確認',
+        handler: () => {
+          this.logout()
+        }
+      },
+      ]
+    });
+    alert.present();
+  }
+
+  logout(){
+    window.localStorage.removeItem('token');
+    this.nav.setRoot(LoginPage);
   }
 }

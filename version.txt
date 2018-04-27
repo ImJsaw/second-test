@@ -1,0 +1,12 @@
+4/26
+完成登入登出
+解決頁面跳轉side menu消失BUG
+
+
+
+**goal**
+確認退出
+抓取使用者資料
+介面優化
+
+https://goo.gl/kShGRW

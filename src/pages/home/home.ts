@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -18,10 +18,9 @@ export class HomePage {
   facebook = "艾奎華"
   instagram = "ai6x8x8"
 
-  constructor(public navCtrl: NavController) {
-
-
-
+  constructor(public navCtrl: NavController, public menu: MenuController) {
+    this.menu = menu;
+    this.menu.enable(true,"MyMenu")
   }
 
 }
