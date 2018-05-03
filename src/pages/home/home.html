@@ -8,44 +8,45 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-refresher pulling-text="重新整理" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-card>
-
     <ion-card-content>
       <img class = "userimage" src = "{{userimage}}" alt = "照片">
-      <ion-list>
-        <button ion-item>
-          <ion-icon name="person"></ion-icon>
-          {{name}}
-        </button>
-        <button ion-item>
-          <ion-icon name="contact"></ion-icon>
-          {{group}}
-        </button>
-        <button ion-item>
-          <ion-icon name="school"></ion-icon>
-          {{school}}
-        </button>
-        <button ion-item>
-          <ion-icon name="calendar"></ion-icon>
-          {{birthday}}
-        </button>
-        <button ion-item>
-          <ion-icon name="heart"></ion-icon>
-          {{inlove}}
-        </button>
-        <button ion-item>
-          <ion-icon name="call"></ion-icon>
-          {{phonenumber}}
-        </button>
-        <button ion-item>
-          <ion-icon name="logo-facebook"></ion-icon>
-          {{facebook}}
-        </button>
-        <button ion-item>
-          <ion-icon name="logo-instagram"></ion-icon>
-          {{instagram}}
-        </button>
-      </ion-list>
+      <button ion-item >
+        <ion-icon  name="person"></ion-icon>
+        {{testdata.name}}
+      </button>
+      <button ion-item>
+        <ion-icon name="contact"></ion-icon>
+        {{testdata.group}}
+      </button>
+      <button ion-item>
+        <ion-icon name="school"></ion-icon>
+        {{testdata.school}}
+      </button>
+      <button ion-item>
+        <ion-icon name="calendar"></ion-icon>
+        {{testdata.birthday}}
+      </button>
+      <button ion-item>
+        <ion-icon name="heart"></ion-icon>
+        {{testdata.relationship}}
+      </button>
+      <button ion-item>
+        <ion-icon name="call"></ion-icon>
+        {{testdata.phone}}
+      </button>
+      <button ion-item>
+        <ion-icon name="logo-facebook"></ion-icon>
+        {{testdata.socialmedia.fb}}
+      </button>
+      <button ion-item>
+        <ion-icon name="logo-instagram"></ion-icon>
+        {{testdata.socialmedia.ig}}
+      </button>
     </ion-card-content>
   </ion-card>
 </ion-content>

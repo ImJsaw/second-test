@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { Http} from '@angular/http';
+import { NavController} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -7,20 +8,52 @@ import { NavController, MenuController } from 'ionic-angular';
 })
 export class HomePage {
 
+  mydata:any;
+  testdata = {
+    success : true,
+    name : "name",
+    group : "group",
+    school: "school",
+    birthday : "birthday",
+    relationship : "love status",
+    phone:"phone",
+    socialmedia:{
+      fb:"fb",
+      ig:"ig"
+    }
+  }
 
-  userimage = "assets/img/avatar-gollum.jpg"
-  name = "我不4艾奎華喇";
-  group = "老子是召組^_^"
-  school = "台科大電資學士班"
-  birthday = "2/30"
-  inlove = "一言難盡>//<"
-  phonenumber = "0912487487"
-  facebook = "艾奎華"
-  instagram = "ai6x8x8"
+  constructor(public navCtrl: NavController, private http: Http) {
+    this.getdata()
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {
-    this.menu = menu;
-    this.menu.enable(true,"MyMenu")
+  }
+
+  doRefresh(refresher){
+    console.log("refresh")
+    this.getdata()
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+  getdata(){
+    this.http.post('http://175.182.61.162:8888/user/get',
+    {
+      token : window.localStorage.getItem('token'),
+    })
+    .subscribe(data=>{
+      this.mydata = data.json()
+      if(this.mydata.success){
+        this.testdata = this.mydata
+        alert("get data success")
+      }
+      else{
+        alert("Token錯誤"+ window.localStorage.getItem('token'))
+      }
+    },error =>{
+      alert(error)
+    })
   }
 
 }
