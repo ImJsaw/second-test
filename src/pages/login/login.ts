@@ -32,7 +32,7 @@ export class LoginPage {
           this.navCtrl.setRoot(HomePage);
           }
           else{
-            this.http.post('http://175.182.61.162:8888/login',
+            this.http.post('http://suin.limaois.me:8888/login',
             {
               username : this.user.username,
               password: this.user.password

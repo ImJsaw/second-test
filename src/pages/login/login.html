@@ -11,13 +11,19 @@
       <div class = "input-block">
         <label>
           <span>帳號</span>
-          <ion-input [(ngModel)] = user.username class = "back-gray" type = "text" placeholder = "請輸入帳號" #username></ion-input>
+          <ion-input [(ngModel)] = user.username class = "back-gray" type = "tel" placeholder = "請輸入帳號"></ion-input>
         </label>
       </div>
       <div class = "input-block">
         <label>
           <span class = "left-pad">密碼</span>
-          <ion-input [(ngModel)] = user.password class = "back-gray" type = "password" placeholder = "請輸入密碼" #password></ion-input>
+          <ion-input
+            clearOninput = false
+            [(ngModel)] = user.password
+            class = "back-gray"
+            type = "password"
+            placeholder = "請輸入密碼"
+          ></ion-input>
         </label>
       </div>
       <button ion-button small float-end (click) = "login()">登入</button>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http} from '@angular/http';
-import { NavController} from 'ionic-angular';
+import { EditDataPage } from "./edit-data"
+import { ModalController, NavController} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
     group : "group",
     school: "school",
     birthday : "birthday",
-    relationship : "love status",
+    inlove : "love status",
     phone:"phone",
     socialmedia:{
       fb:"fb",
@@ -23,7 +24,7 @@ export class HomePage {
     }
   }
 
-  constructor(public navCtrl: NavController, private http: Http) {
+  constructor(public navCtrl: NavController, private http: Http, public modalCtrl: ModalController) {
     this.getdata()
 
   }
@@ -38,7 +39,7 @@ export class HomePage {
   }
 
   getdata(){
-    this.http.post('http://175.182.61.162:8888/user/get',
+    this.http.post('http://suin.limaois.me:8888/user/get',
     {
       token : window.localStorage.getItem('token'),
     })
@@ -56,4 +57,10 @@ export class HomePage {
     })
   }
 
+  openEditPage(){
+    console.log("openEditPage")
+    //open indivisual page
+    let modal = this.modalCtrl.create(EditDataPage);
+    modal.present();
+  }
 }

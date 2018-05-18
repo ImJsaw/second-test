@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { QRcodePage } from './q-rcode';
+import { IntroPage } from './intro';
 
 @NgModule({
   declarations: [
-    QRcodePage,
+    IntroPage,
   ],
   imports: [
-    IonicPageModule.forChild(QRcodePage),
+    IonicPageModule.forChild(IntroPage),
   ],
 })
-export class QRcodePageModule {}
+export class IntroPageModule {}

@@ -1,15 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, AlertController } from 'ionic-angular';
+import { Nav, Platform, AlertController,App } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage } from '../pages/login/login';
-
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
+import { IntroPage } from '../pages/intro/intro';
 import { ParticipantsPage } from '../pages/participants/participants';
 import { NotificationPage } from '../pages/notification/notification';
-import { QRcodePage } from '../pages/q-rcode/q-rcode';
+import { EventPage } from '../pages/event/event';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { SponcerPage } from '../pages/sponcer/sponcer';
 
@@ -20,10 +20,13 @@ export class MyApp {
   @ViewChild("content") nav: Nav;
 
   rootPage: any = LoginPage;
+  alertShown = false;
+  lastBack:any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public alertCtrl: AlertController) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public app:App,
+              public splashScreen: SplashScreen,public alertCtrl: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -32,29 +35,59 @@ export class MyApp {
       { title: '地圖', component: MapPage },
       { title: '成員', component: ParticipantsPage },
       { title: '通知', component: NotificationPage },
-      { title: '條碼', component: QRcodePage },
+      { title: '活動', component: EventPage },
       { title: '時程', component: TimelinePage },
       { title: '贊助', component: SponcerPage },
+      { title: '系所介紹', component: IntroPage },
+
     ];
 
+    platform.registerBackButtonAction(() => {
+	       const overlayView = this.app._appRoot._overlayPortal._views[0];
+	       if(overlayView && overlayView.dismiss) {
+		         overlayView.dismiss();
+	       } else {
+		          let nav = this.app.getActiveNav();
+		          if(nav.canGoBack()){
+			             nav.pop();
+		          } else if(this.lastBack + 500 < Date.now()) {
+			             this.confirmExitApp();
+		          }
+	       }
+	       this.lastBack = Date.now();
+    });
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       if(window.localStorage.getItem('token') != null){
         this.nav.setRoot(HomePage);
       }
     });
+  }
 
+  confirmExitApp(){
+    let alert = this.alertCtrl.create({
+      title: '退出APP',
+      message: '確認退出?',
+      buttons: [{
+          text: '取消',
+          role: 'cancel',
+          handler: () => {this.alertShown=false;}
+        },
+        {
+          text: '是',
+          handler: () => {this.platform.exitApp();}
+        }]
+    });
+     alert.present().then(()=>{
+      this.alertShown=true;
+    });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
 
@@ -68,11 +101,8 @@ export class MyApp {
       },
       {
         text: '確認',
-        handler: () => {
-          this.logout()
-        }
-      },
-      ]
+        handler: () => {this.logout()}
+      }]
     });
     alert.present();
   }

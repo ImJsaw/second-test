@@ -4,6 +4,9 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>個人檔案</ion-title>
+    <button ion-button color = "light" float-end small (click) = "getdata()">
+      <ion-icon name="refresh"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
@@ -12,29 +15,37 @@
     <ion-refresher-content>
     </ion-refresher-content>
   </ion-refresher>
+  <div>
+    <ion-icon name="arrow-round-up"></ion-icon>
+    點擊展開側欄
+    <button ion-button small float-end  outline class = "marginRight" color = "dark" (click) = openEditPage()>
+      <p class = "marginRight">編輯</p>
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </div>
   <ion-card>
     <ion-card-content>
       <img class = "userimage" src = "{{userimage}}" alt = "照片">
-      <button ion-item >
+      <ion-item>
         <ion-icon  name="person"></ion-icon>
         {{testdata.name}}
-      </button>
-      <button ion-item>
+      </ion-item>
+      <ion-item>
         <ion-icon name="contact"></ion-icon>
         {{testdata.group}}
-      </button>
-      <button ion-item>
+      </ion-item>
+      <ion-item>
         <ion-icon name="school"></ion-icon>
         {{testdata.school}}
-      </button>
-      <button ion-item>
+      </ion-item>
+      <ion-item>
         <ion-icon name="calendar"></ion-icon>
         {{testdata.birthday}}
-      </button>
-      <button ion-item>
+      </ion-item>
+      <ion-item>
         <ion-icon name="heart"></ion-icon>
-        {{testdata.relationship}}
-      </button>
+        {{testdata.inlove}}
+      </ion-item>
       <button ion-item>
         <ion-icon name="call"></ion-icon>
         {{testdata.phone}}

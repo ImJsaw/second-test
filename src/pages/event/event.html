@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>活動</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="fullScoreData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
+    </div>
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="gameData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
+    </div>
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="nightData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
+    </div>
+    <button ion-button float-end small (click)="update()">更新</button>
+  </div>
+</ion-content>

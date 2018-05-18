@@ -7,33 +7,65 @@
     <ion-title>成員</ion-title>
   </ion-navbar>
 
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="group">
+      <ion-segment-button value="supervisors">
+        工人
+      </ion-segment-button>
+      <ion-segment-button value="leaders">
+        隊輔
+      </ion-segment-button>
+      <ion-segment-button value="team">
+        小隊
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div [ngSwitch]="group">
+    <ion-list *ngSwitchCase="'supervisors'">
+      <ion-list-header>召組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.supervisors.coordinators" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+      <ion-list-header>活動組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.supervisors.event" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+      <ion-list-header>美宣組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.supervisors.art" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+      <ion-list-header>公關組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.supervisors.publicRelation" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+      <ion-list-header>機動組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.supervisors.mobile" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+    </ion-list>
 
-  <ion-list>
-    <ion-list-header>
-      召組
-    </ion-list-header>
-    <a ion-item (click)="openModal({charNum: 0})">
-      艾奎華
-    </a>
-    <a ion-item (click)="openModal({charNum: 1})">
-      Frodo Baggins
-    </a>
-    <a ion-item (click)="openModal({charNum: 2})">
-      Sam
-    </a>
-  </ion-list>
+    <ion-list *ngSwitchCase="'leaders'">
+      <a ion-item *ngFor = "let t of tempList.leaders" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+    </ion-list>
 
-  <ion-list  *ngFor = "let t of team  let i = index">
-    <ion-list-header>
-      {{t.num}}
-    </ion-list-header>
-    <ion-item *ngFor = "let p of team[i].people let j = index" >
-      {{p.name}}
-    </ion-item>
-  </ion-list>
-
-
+    <ion-list *ngSwitchCase="'team'">
+      <ion-list-header>第一組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.team.one" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+      <ion-list-header>第二組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.team.two" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+      <ion-list-header>第三組</ion-list-header>
+      <a ion-item *ngFor = "let t of tempList.team.three" (click) = "openModal(t.ID)">
+        {{t.name}}
+      </a>
+    </ion-list>
+  </div>
 </ion-content>
