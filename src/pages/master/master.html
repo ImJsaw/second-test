@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>管理介面</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-card *ngIf="secureLevel >= 2">
+    <ion-card-content>
+      <ion-card-title>admins</ion-card-title>
+      ****admin***
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="secureLevel >= 1">
+    <ion-card-content>
+      <ion-card-title>team leader</ion-card-title>
+      secureLevel = {{secureLevel}}
+      <div>
+        <ion-card-title>加分</ion-card-title>
+        //加分
+        <ion-card-title>回報</ion-card-title>
+        //回報admin
+        <ion-card-title>點名</ion-card-title>
+        //點名
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="secureLevel == 0">權限不足!</div>
+</ion-content>

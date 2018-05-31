@@ -4,9 +4,6 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>個人檔案</ion-title>
-    <button ion-button color = "light" float-end small (click) = "getdata()">
-      <ion-icon name="refresh"></ion-icon>
-    </button>
   </ion-navbar>
 </ion-header>
 
@@ -17,10 +14,14 @@
   </ion-refresher>
   <div>
     <ion-icon name="arrow-round-up"></ion-icon>
-    點擊展開側欄
+    點擊
     <button ion-button small float-end  outline class = "marginRight" color = "dark" (click) = openEditPage()>
       <p class = "marginRight">編輯</p>
       <ion-icon name="create"></ion-icon>
+    </button>
+    <button ion-button small float-end outline class = "marginRight" color = "dark" (click) = getdata()>
+      <p class = "marginRight">重新整理</p>
+      <ion-icon name="refresh"></ion-icon>
     </button>
   </div>
   <ion-card>

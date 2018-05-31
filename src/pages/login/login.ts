@@ -27,10 +27,24 @@ export class LoginPage {
         alert("輸入帳號");
     } else if (this.user.password == null) {
         alert("輸入密碼");
-      } else if(this.user.username == "jsaw" && this.user.password == "0000"){//test mode
+      } else if(this.user.username == "jsaw" && this.user.password == "0000"){//admin mode
           window.localStorage.setItem('token',"FUCKYOUCSHARP")
+          window.localStorage.setItem('security','999')
           this.navCtrl.setRoot(HomePage);
           }
+          else if(this.user.username == "user" && this.user.password == "0000"){//test mode *normal user
+              window.localStorage.setItem('token',"FUCKYOUCSHARP")
+              window.localStorage.setItem('security','1')
+              this.navCtrl.setRoot(HomePage);
+              }
+
+              else if(this.user.username == "lead" && this.user.password == "0000"){//test mode *teamleader
+                  window.localStorage.setItem('token',"FUCKYOUCSHARP")
+                  window.localStorage.setItem('security','0')
+                  this.navCtrl.setRoot(HomePage);
+                  }
+
+
           else{
             this.http.post('http://suin.limaois.me:8888/login',
             {
@@ -42,6 +56,7 @@ export class LoginPage {
               if(this.mydata.success){//login success
                 alert("login success")
                 window.localStorage.setItem('token',this.mydata.token)
+                window.localStorage.setItem('security',this.mydata.security)
                 this.navCtrl.setRoot(HomePage);
               }
               else{

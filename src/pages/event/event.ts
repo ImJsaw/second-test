@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
@@ -27,13 +28,28 @@ export class EventPage {
   public nightData:any[] = [
     {data: [65, 59, 80, 81, 56, 55, 40,22], label: '花費時間(min)'}
   ];
+  testData = [1, 2, 3, 4, 5, 6, 7,99]
+
 
   update(){
+    this.http.post('http://suin.limaois.me:8888/',
+    {
+      token : window.localStorage.getItem('token'),
+    })
+    .subscribe(data=>{
 
+    },error =>{
+      alert(error)
+    })
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.update()//get data
+  fakeupdate(){
+    this.fullScoreData[0].data = this.testData
+  }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
+    //this.update()//get data
+    this.fakeupdate()
   }
 
   ionViewDidLoad() {

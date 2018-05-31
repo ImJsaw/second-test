@@ -13,7 +13,7 @@ import { IntroPage } from '../pages/intro/intro';
 import { ParticipantsPage } from '../pages/participants/participants';
 import { ModalContentPage } from '../pages/participants/modal-content';
 import { NotificationPage } from '../pages/notification/notification';
-
+import { MasterPage } from '../pages/master/master';
 import { EventPage } from '../pages/event/event';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { SponcerPage } from '../pages/sponcer/sponcer';
@@ -35,7 +35,8 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
     EventPage,
     TimelinePage,
     SponcerPage,
-    LoginPage
+    LoginPage,
+    MasterPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,8 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
     EventPage,
     TimelinePage,
     SponcerPage,
-    LoginPage
+    LoginPage,
+    MasterPage
   ],
   providers: [
     StatusBar,

@@ -38,6 +38,29 @@
             <ion-option value="一言難盡>//<">一言難盡>//<</ion-option>
         </ion-select>
       </ion-item>
+      <ion-item>
+        <ion-label color="primary">手機</ion-label>
+        <ion-input
+        [(ngModel)]=charData.items[3].note
+        class="back-gray"
+        type="tel"
+        placeholder="                  預設保密 點擊變更"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">FB</ion-label>
+        <ion-input
+        [(ngModel)]=charData.items[4].note
+        class="back-gray"
+        placeholder="                     預設保密 點擊變更"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">IG</ion-label>
+        <ion-input
+        [(ngModel)]=charData.items[5].note
+        class="back-gray"
+        placeholder="                     預設保密 點擊變更"></ion-input>
+      </ion-item>
+
   </ion-list>
   <button ion-button block (click)="verifyData()">
     儲存

@@ -12,6 +12,7 @@ import { NotificationPage } from '../pages/notification/notification';
 import { EventPage } from '../pages/event/event';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { SponcerPage } from '../pages/sponcer/sponcer';
+import { MasterPage } from '../pages/master/master';
 
 @Component({
   templateUrl: 'app.html'
@@ -39,6 +40,7 @@ export class MyApp {
       { title: '時程', component: TimelinePage },
       { title: '贊助', component: SponcerPage },
       { title: '系所介紹', component: IntroPage },
+      { title: '管理介面', component: MasterPage },
 
     ];
 

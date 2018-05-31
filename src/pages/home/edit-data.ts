@@ -17,6 +17,10 @@ export class EditDataPage {
         { title: '校系', note: ''},
         { title: '生日', note: '' },
         { title: '感情狀態', note: '' },
+        { title: '手機號碼', note: '' },
+        { title: 'FB', note: '' },
+        { title: 'IG', note: '' },
+
       ]
     }
 
