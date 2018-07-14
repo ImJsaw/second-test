@@ -44,7 +44,6 @@ export class LoginPage {
                   this.navCtrl.setRoot(HomePage);
                   }
 
-
           else{
             this.http.post('http://suin.limaois.me:8888/login',
             {

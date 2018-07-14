@@ -7,12 +7,11 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { IntroPage } from '../pages/intro/intro';
-import { ParticipantsPage } from '../pages/participants/participants';
 import { NotificationPage } from '../pages/notification/notification';
-import { EventPage } from '../pages/event/event';
+import { ScorePage } from '../pages/score/score';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { SponcerPage } from '../pages/sponcer/sponcer';
-import { MasterPage } from '../pages/master/master';
+import { ManagePage } from '../pages/manage/manage';
 
 @Component({
   templateUrl: 'app.html'
@@ -34,14 +33,12 @@ export class MyApp {
     this.pages = [
       { title: '首頁', component: HomePage },
       { title: '地圖', component: MapPage },
-      { title: '成員', component: ParticipantsPage },
       { title: '通知', component: NotificationPage },
-      { title: '活動', component: EventPage },
+      { title: '分數', component: ScorePage },
       { title: '時程', component: TimelinePage },
       { title: '贊助', component: SponcerPage },
       { title: '系所介紹', component: IntroPage },
-      { title: '管理介面', component: MasterPage },
-
+      { title: '管理介面', component: ManagePage },
     ];
 
     platform.registerBackButtonAction(() => {

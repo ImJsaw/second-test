@@ -7,16 +7,14 @@ import { LoginPage } from '../pages/login/login';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { EditDataPage } from '../pages/home/edit-data';
 import { MapPage } from '../pages/map/map';
 import { IntroPage } from '../pages/intro/intro';
-import { ParticipantsPage } from '../pages/participants/participants';
-import { ModalContentPage } from '../pages/participants/modal-content';
 import { NotificationPage } from '../pages/notification/notification';
-import { MasterPage } from '../pages/master/master';
-import { EventPage } from '../pages/event/event';
+import { ManagePage } from '../pages/manage/manage';
+import { ScorePage } from '../pages/score/score';
 import { TimelinePage } from '../pages/timeline/timeline';
 import { SponcerPage } from '../pages/sponcer/sponcer';
+import { Push } from '@ionic-native/push';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,17 +24,14 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
   declarations: [
     MyApp,
     HomePage,
-    EditDataPage,
     MapPage,
-    ParticipantsPage,
-    ModalContentPage,
     NotificationPage,
     IntroPage,
-    EventPage,
+    ScorePage,
     TimelinePage,
     SponcerPage,
     LoginPage,
-    MasterPage
+    ManagePage,
   ],
   imports: [
     BrowserModule,
@@ -49,22 +44,20 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
     MyApp,
     HomePage,
     MapPage,
-    ParticipantsPage,
-    ModalContentPage,
-    EditDataPage,
     IntroPage,
     NotificationPage,
-    EventPage,
+    ScorePage,
     TimelinePage,
     SponcerPage,
     LoginPage,
-    MasterPage
+    ManagePage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoginServiceProvider
+    LoginServiceProvider,
+    Push
   ]
 })
 export class AppModule {}

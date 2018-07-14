@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http} from '@angular/http';
-import { EditDataPage } from "./edit-data"
 import { ModalController, NavController} from 'ionic-angular';
+import { ScorePage } from '../score/score';
 
 @Component({
   selector: 'page-home',
@@ -12,21 +12,14 @@ export class HomePage {
   mydata:any;
   testdata = {
     success : true,
-    name : "name",
-    group : "group",
-    school: "school",
-    birthday : "birthday",
-    inlove : "love status",
-    phone:"phone",
-    socialmedia:{
-      fb:"fb",
-      ig:"ig"
-    }
+    securityLevel : 1,
+    group : "第x小隊",
+    score : 0,
+    curEvent : "現在玩什麼OWO"
   }
 
   constructor(public navCtrl: NavController, private http: Http, public modalCtrl: ModalController) {
     this.getdata()
-
   }
 
   doRefresh(refresher){
@@ -48,7 +41,6 @@ export class HomePage {
       if(this.mydata.success){
         this.testdata = this.mydata
         alert("get data success")
-        
       }
       else{
         alert("Token錯誤"+ window.localStorage.getItem('token'))
@@ -58,10 +50,8 @@ export class HomePage {
     })
   }
 
-  openEditPage(){
-    console.log("openEditPage")
-    //open indivisual page
-    let modal = this.modalCtrl.create(EditDataPage);
-    modal.present();
+  goScorePage(){
+    this.navCtrl.setRoot(ScorePage);
   }
+
 }

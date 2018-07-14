@@ -15,50 +15,34 @@
   <div>
     <ion-icon name="arrow-round-up"></ion-icon>
     點擊
-    <button ion-button small float-end  outline class = "marginRight" color = "dark" (click) = openEditPage()>
-      <p class = "marginRight">編輯</p>
-      <ion-icon name="create"></ion-icon>
-    </button>
     <button ion-button small float-end outline class = "marginRight" color = "dark" (click) = getdata()>
       <p class = "marginRight">重新整理</p>
       <ion-icon name="refresh"></ion-icon>
     </button>
   </div>
-  <ion-card>
+
+  <ion-card (click) = goScorePage()>
     <ion-card-content>
-      <img class = "userimage" src = "{{userimage}}" alt = "照片">
-      <ion-item>
-        <ion-icon  name="person"></ion-icon>
-        {{testdata.name}}
-      </ion-item>
-      <ion-item>
-        <ion-icon name="contact"></ion-icon>
-        {{testdata.group}}
-      </ion-item>
-      <ion-item>
-        <ion-icon name="school"></ion-icon>
-        {{testdata.school}}
-      </ion-item>
-      <ion-item>
-        <ion-icon name="calendar"></ion-icon>
-        {{testdata.birthday}}
-      </ion-item>
-      <ion-item>
-        <ion-icon name="heart"></ion-icon>
-        {{testdata.inlove}}
-      </ion-item>
-      <button ion-item>
-        <ion-icon name="call"></ion-icon>
-        {{testdata.phone}}
-      </button>
-      <button ion-item>
-        <ion-icon name="logo-facebook"></ion-icon>
-        {{testdata.socialmedia.fb}}
-      </button>
-      <button ion-item>
-        <ion-icon name="logo-instagram"></ion-icon>
-        {{testdata.socialmedia.ig}}
-      </button>
+      <div class="card-font large-font">
+          目前分數 : {{testdata.score}}
+      </div>
+      <div class="card-font mid-font">
+          隊伍 : {{testdata.group}}
+      </div>
+      <div class="card-font mid-font">
+          目前活動 : {{testdata.curEvent}}
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="testdata.securityLevel >= 1">
+    <ion-card-content class="card-font mid-font">
+      <ion-card-title class="card-font large-font">**工人**</ion-card-title>
+      權限等級 : {{testdata.securityLevel}}
+      <div>
+        <ion-card-title>待辦事項</ion-card-title>
+        //
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>

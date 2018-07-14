@@ -4,10 +4,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-event',
-  templateUrl: 'event.html',
+  selector: 'page-score',
+  templateUrl: 'score.html',
 })
-export class EventPage {
+export class ScorePage {
 
   public barChartOptions:any = {
     scaleShowVerticalLines: false,

@@ -3,10 +3,10 @@ import { Http} from '@angular/http';
 import { ModalController, NavController} from 'ionic-angular';
 
 @Component({
-  selector: 'page-master',
-  templateUrl: 'master.html'
+  selector: 'page-manage',
+  templateUrl: 'manage.html'
 })
-export class MasterPage {
+export class ManagePage {
   secureLevel:any;
   constructor(public navCtrl: NavController, private http: Http, public modalCtrl: ModalController) {
     this.getdata()
