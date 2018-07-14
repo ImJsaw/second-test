@@ -12,12 +12,14 @@ import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, MarkerOptions, Marker} 
 export class MapPage {
   @ViewChild('mapContainer') mapContainer: ElementRef;
 
+  google:any;
   center:any={
-      'lat':25.042375,
-      'lng':121.525383,
-      'name':'北商大'
+      'lat':25.013620,
+      'lng':121.540634,
+      'name':'11123'
     };
-  map:any;
+
+
 
   constructor(public googleMaps: GoogleMaps, public plt: Platform, public nav: NavController,public navParams: NavParams) {
   }
@@ -33,7 +35,6 @@ export class MapPage {
 
   displayGoogleMap() {
     let latLng = new google.maps.LatLng(this.center.lat, this.center.lng);
-
     let mapOptions = {
       center: latLng,
       disableDefaultUI: true,
@@ -41,7 +42,7 @@ export class MapPage {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    this.map = new google.maps.Map(this.map.nativeElement, mapOptions);
+    this.map = new google.maps.Map(this.mapContainer.nativeElement, mapOptions);
   }
 
   addMarkersToMap() {
