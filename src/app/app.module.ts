@@ -4,8 +4,9 @@ import { HttpModule} from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule,} from 'ionic-angular';
 import { ChartsModule } from 'ng2-charts';
 import { GoogleMaps } from '@ionic-native/google-maps';
-import { LoginPage } from '../pages/login/login';
+import { Geolocation } from '@ionic-native/geolocation';
 
+import { LoginPage } from '../pages/login/login';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
@@ -57,6 +58,7 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
     StatusBar,
     SplashScreen,
     GoogleMaps,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginServiceProvider,
     Push

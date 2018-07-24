@@ -1,7 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, MarkerOptions, Marker} from "@ionic-native/google-maps";
 
+declare var google;
 
 @IonicPage()
 @Component({
@@ -12,16 +14,26 @@ import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, MarkerOptions, Marker} 
 export class MapPage {
   @ViewChild('mapContainer') mapContainer: ElementRef;
 
-  google:any;
-  center:any={
+  map:any;
+  curPosition={
+    'lat':25.013620,
+    'lng':121.540634
+  }
+  markerLocations=[{
+      'id':'001',
       'lat':25.013620,
       'lng':121.540634,
-      'name':'11123'
-    };
+      'name':'台科大'
+      },{
+      'id':'002',
+      'lat':25.043081,
+      'lng':121.523756,
+      'name':'成功高中'
+      }];
 
-
-
-  constructor(public googleMaps: GoogleMaps, public plt: Platform, public nav: NavController,public navParams: NavParams) {
+  constructor(public googleMaps: GoogleMaps, public plt: Platform, public nav: NavController,
+    public navParams: NavParams,private geolocation: Geolocation) {
+      this.onLocateUser();
   }
 
   ionViewWillEnter() {
@@ -34,21 +46,44 @@ export class MapPage {
   }
 
   displayGoogleMap() {
-    let latLng = new google.maps.LatLng(this.center.lat, this.center.lng);
+    let latLng = new google.maps.LatLng(this.curPosition.lat, this.curPosition.lng);
     let mapOptions = {
       center: latLng,
       disableDefaultUI: true,
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-
     this.map = new google.maps.Map(this.mapContainer.nativeElement, mapOptions);
   }
 
   addMarkersToMap() {
-    var position = new google.maps.LatLng(this.center.lat, this.center.lng);
-    var myMarker = new google.maps.Marker({position:position, title:this.center.name});
-    myMarker.setMap(this.map);
+    for(var marker of this.markerLocations){
+      var position = new google.maps.LatLng(marker.lat, marker.lng);
+      var myMarker = new google.maps.Marker({id:marker.id, position:position, title:marker.name});
+      myMarker.setMap(this.map);
+      this.addInfoWindowToMarker(myMarker);
+    }
   }
 
+  addInfoWindowToMarker(marker) {
+    var infoWindowContent = marker.title;
+    var infoWindow = new google.maps.InfoWindow({
+      content: infoWindowContent
+    });
+    infoWindow.open(this.map, marker);
+  }
+
+  onLocateUser(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+            //get cur position
+          //  alert(resp.coords.latitude);
+            //alert(resp.coords.longitude);
+            this.curPosition.lat = resp.coords.latitude;
+            this.curPosition.lng = resp.coords.longitude;
+            //取得座標後再開地圖
+        }).catch((error) => {
+            //取得座標失敗
+            alert('error');
+        });
+  }
 }
