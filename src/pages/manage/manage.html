@@ -8,27 +8,60 @@
 </ion-header>
 
 <ion-content padding >
-  <ion-card *ngIf="secureLevel >= 2">
+  <ion-card *ngIf="testdata.security >= 2">
     <ion-card-content>
-      <ion-card-title>admins</ion-card-title>
-      ****admin***
+      <ion-card-title>至高無上的神</ion-card-title>
+        <div class="card-font mid-font">
+            目前活動 : {{testdata.curEvent}}
+        </div>
+      <button ion-button small float-start (click) = "prevEvent()">上個活動</button>
+      <button ion-button small float-end (click) = "nextEvent()">下個活動</button>
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="secureLevel >= 1">
+  <ion-card *ngIf="testdata.security >= 1">
     <ion-card-content>
-      <ion-card-title>team leader</ion-card-title>
-      secureLevel = {{secureLevel}}
+      <ion-card-title>工人</ion-card-title>
+      secureLevel = {{testdata.security}}
       <div>
-        <ion-card-title>加分</ion-card-title>
-        //加分
+        <ion-card-title>
+          加分
+          <button ion-button small float-end (click) = "addScore()">確認</button>
+        </ion-card-title>
+          <div>
+            <ion-item>
+              <ion-label>隊伍</ion-label>
+              <ion-select [(ngModel)]="team" interface="popover">
+                <ion-option value="1">1</ion-option>
+                <ion-option value="2">2</ion-option>
+                <ion-option value="3">3</ion-option>
+                <ion-option value="4">4</ion-option>
+                <ion-option value="5">5</ion-option>
+                <ion-option value="6">6</ion-option>
+                <ion-option value="7">7</ion-option>
+                <ion-option value="8">8</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>分數</ion-label>
+              <ion-select [(ngModel)]="score" interface="popover">
+                <ion-option value="1">1</ion-option>
+                <ion-option value="2">2</ion-option>
+                <ion-option value="5">5</ion-option>
+                <ion-option value="10">10</ion-option>
+              </ion-select>
+            </ion-item>
+
+          </div>
         <ion-card-title>回報</ion-card-title>
         //回報admin
         <ion-card-title>點名</ion-card-title>
         //點名
+        <ion-card-title>build version : 54</ion-card-title>
+
       </div>
     </ion-card-content>
   </ion-card>
 
-  <div *ngIf="secureLevel == 0">權限不足!</div>
+  <div *ngIf="testdata.security == 0">權限不足!</div>
 </ion-content>

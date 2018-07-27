@@ -12,7 +12,7 @@ export class HomePage {
   mydata:any;
   testdata = {
     success : true,
-    securityLevel : 1,
+    security : 0,
     group : "第x小隊",
     score : 0,
     curEvent : "現在玩什麼OWO"

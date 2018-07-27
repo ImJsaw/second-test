@@ -32,13 +32,16 @@
       <div class="card-font mid-font">
           目前活動 : {{testdata.curEvent}}
       </div>
+      <div class="card-font mid-font">
+          權限等級 : {{testdata.security}}
+      </div>
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="testdata.securityLevel >= 1">
+  <ion-card *ngIf="testdata.security >= 1">
     <ion-card-content class="card-font mid-font">
       <ion-card-title class="card-font large-font">**工人**</ion-card-title>
-      權限等級 : {{testdata.securityLevel}}
+      權限等級 : {{testdata.security}}
       <div>
         <ion-card-title>待辦事項</ion-card-title>
         //

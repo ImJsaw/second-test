@@ -16,8 +16,8 @@ export class MapPage {
 
   map:any;
   curPosition={
-    'lat':25.013620,
-    'lng':121.540634
+    'lat':24.941556,
+    'lng':121.715761
   }
   markerLocations=[{
       'id':'001',
@@ -26,9 +26,9 @@ export class MapPage {
       'name':'台科大'
       },{
       'id':'002',
-      'lat':25.043081,
-      'lng':121.523756,
-      'name':'成功高中'
+      'lat':24.941556,
+      'lng':121.715761,
+      'name':'合歡山莊'
       }];
 
   constructor(public googleMaps: GoogleMaps, public plt: Platform, public nav: NavController,
