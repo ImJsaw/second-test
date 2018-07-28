@@ -42,7 +42,7 @@ export class ManagePage {
 
   addScore(){
     alert(this.team);
-    this.http.post('http://suin.limaois.me:8888/workers/addpoint',
+    this.http.post('http://suin.limaois.me:8888/workers/addScore',
     {
       token : window.localStorage.getItem('token'),
       team : this.team,
