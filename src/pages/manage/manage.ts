@@ -9,11 +9,12 @@ import { ModalController, NavController} from 'ionic-angular';
 export class ManagePage {
   team = 0;
   score = 0;
-
+  mydata:any;
   testdata = {
     success : true,
     security : 99,
     score : 0,
+    group : 0,
     curEvent : "現在玩什麼OWO"
   }
 
@@ -22,7 +23,7 @@ export class ManagePage {
   }
 
   getdata(){
-    this.http.post('http://suin.limaois.me:8888/user/get',
+    this.http.post('http://suin.limaois.me:8888/users/get',
     {
       token : window.localStorage.getItem('token'),
     })
@@ -30,7 +31,7 @@ export class ManagePage {
       this.mydata = data.json()
       if(this.mydata.success){
         this.testdata = this.mydata
-        alert("get data success")
+        alert("get data success ")
       }
       else{
         alert("Token錯誤"+ window.localStorage.getItem('token'))
@@ -41,20 +42,33 @@ export class ManagePage {
   }
 
   addScore(){
-    alert(this.team);
+    //minus
+    //alert("score = " + this.score*-1 + "// from team " + this.testdata.group + "to" + this.team)
     this.http.post('http://suin.limaois.me:8888/workers/addScore',
     {
       token : window.localStorage.getItem('token'),
-      team : this.team,
-      score: this.score,
+      group : this.testdata.group,
+      score: this.score*-1,
     })
     .subscribe(data=>{
-
+      if(data.json().success == false ){alert(data.json().message)}
     },error =>{
       alert(error)
     })
-    this.team = 0;
-    this.score = 0;
+
+    //add
+    this.http.post('http://suin.limaois.me:8888/workers/addScore',
+    {
+      token : window.localStorage.getItem('token'),
+      group : this.team,
+      score: this.score,
+    })
+    .subscribe(data=>{
+        if(data.json().success == false ){alert(data.json().message)}
+        else alert("成功給予"  + this.team + "小隊" + this.score + "分")
+    },error =>{
+      alert(error)
+    })
   }
 
   prevEvent(){
@@ -78,5 +92,4 @@ export class ManagePage {
       alert(error)
     })
   }
-
 }

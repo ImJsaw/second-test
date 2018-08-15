@@ -32,7 +32,7 @@ export class HomePage {
   }
 
   getdata(){
-    this.http.post('http://suin.limaois.me:8888/user/get',
+    this.http.post('http://suin.limaois.me:8888/users/get',
     {
       token : window.localStorage.getItem('token'),
     })
