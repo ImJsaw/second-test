@@ -26,7 +26,6 @@ export class HomePage {
     console.log("refresh")
     this.getdata()
     setTimeout(() => {
-      console.log('Async operation has ended');
       refresher.complete();
     }, 2000);
   }
@@ -40,7 +39,6 @@ export class HomePage {
       this.mydata = data.json()
       if(this.mydata.success){
         this.testdata = this.mydata
-        alert("get data success")
       }
       else{
         alert("Token錯誤"+ window.localStorage.getItem('token'))

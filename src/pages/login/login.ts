@@ -17,7 +17,6 @@ export class LoginPage {
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController,private http: Http) {
-    console.log('construct LoginPage');
     this.menu = menu;
     this.menu.enable(false,"MyMenu")
   }
@@ -68,11 +67,8 @@ export class LoginPage {
 
     }
 
-
   ionViewWillLeave(){
     this.menu.enable(true,"MyMenu")
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+
 }

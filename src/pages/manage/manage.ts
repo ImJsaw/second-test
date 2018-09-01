@@ -31,7 +31,6 @@ export class ManagePage {
       this.mydata = data.json()
       if(this.mydata.success){
         this.testdata = this.mydata
-        alert("get data success ")
       }
       else{
         alert("Token錯誤"+ window.localStorage.getItem('token'))

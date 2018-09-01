@@ -13,24 +13,8 @@
 <ion-content padding>
   <div>
     <div style="display: block">
-      <canvas baseChart
+      <canvas baseChart #mChart height="400"
         [datasets]="fullScoreData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [chartType]="barChartType"></canvas>
-    </div>
-    <div style="display: block">
-      <canvas baseChart
-        [datasets]="gameData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [chartType]="barChartType"></canvas>
-    </div>
-    <div style="display: block">
-      <canvas baseChart
-        [datasets]="nightData"
         [labels]="barChartLabels"
         [options]="barChartOptions"
         [legend]="barChartLegend"
